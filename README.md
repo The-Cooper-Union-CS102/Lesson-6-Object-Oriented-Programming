@@ -1,17 +1,5 @@
 # Object Oriented Programming
 
-Object oriented programming (**OOP**)
-
-1. Objects - Inhreitance, Overloading
-2. Iostream Vs stdio
-2. Namespace
-3. Strings
-4. Error Handling
-5. Function defaults
-6. Malloc Vs New
-7. Virtual Functions
-8. Templating
-
 ## Classes and Objects
 
 In C++, classes are primarily used rather than
@@ -299,4 +287,58 @@ following example:
 
 ```
 {"code": "snippets/pass_reference.cc"}
+```
+
+## `this` Keyword
+
+It is not often necessary, however you can use the
+`this` keyword in C++ to refer to the object itself.
+This can be used to get members or call member
+functions.
+
+```
+{"code": "snippets/this.cc"}
+```
+
+## New and Delete
+
+The C++ companions to our old friends, `malloc` and
+`free` are `new` and `delete`.  These keywords can
+be used to allocate and free memory for the creation
+and deletion of objects.  The `new` operator returns
+a pointer to the created object, and the `delete`
+operator takes the same pointer, and frees the space.
+
+```
+{"code": "snippets/new_delete.cc"}
+```
+
+# Other C++ Things
+
+## String Streams
+
+Streams make input and output a lot easier.  While our
+examples above used `printf`, there is actually almost
+no need for it anymore!  Here is an example that uses
+**string streams** from the standard library in order
+to output some variables.
+
+```
+{"code": "snippets/output.cc"}
+```
+
+We can also use these to store inputs into variables.
+
+```
+{"code": "snippets/input.cc"}
+```
+
+## Strings
+
+In C++, we no longer have to deal with char arrays!
+C++ offers **strings** in the common library which
+offer several useful bulit in methods:
+
+```
+{"code": "snippets/string.cc"}
 ```
