@@ -1001,7 +1001,7 @@ Area: 50
 
 Exceptions are a new feature which allow your function to "return" (throw) an error in the case that it gets some wrong or unexpected input.  In the example below, we pass a value that is larger than expected to the function, and we "throw" the error.  With every throw, we should have a "catch" which takes the error that was thrown and does something with it.
 
-```c
+```c++
 #include <stdexcept>
 #include <limits>
 #include <iostream>
