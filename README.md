@@ -997,6 +997,47 @@ Area: 50
 
 # Other C++ Things
 
+## Exceptions
+
+Exceptions are a new feature which allow your function to "return" (throw) an error in the case that it gets some wrong or unexpected input.  In the example below, we pass a value that is larger than expected to the function, and we "throw" the error.  With every throw, we should have a "catch" which takes the error that was thrown and does something with it.
+
+```
+#include <stdexcept>
+#include <limits>
+#include <iostream>
+
+using namespace std;
+
+void MyFunc(int c)
+{
+    if (c > numeric_limits< char> ::max())
+        throw invalid_argument("MyFunc argument too large.");
+    //...
+}
+
+int main()
+{
+    try
+    {
+        MyFunc(256); //cause an exception to throw
+    }
+    catch (invalid_argument& e)
+    {
+        cerr << e.what() << endl;
+        return -1;
+    }
+    //...
+    return 0;
+}
+```
+
+The advantage of exceptions is that we can
+
+1. Return a different type which gives more information on the error; and
+2. Catch from any level in the call stack - meaning we do not have to propagate the error through all functions.
+
+Note however that (in C++) exceptions should be used sparingly.  If you can get away with returning a value instead of throwing an error, you should generally do that.  They are generally much slower than regular control flow.
+
 ## String Streams
 
 Streams make input and output a lot easier.  While our
